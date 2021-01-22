@@ -1,0 +1,11 @@
+FROM openjdk:11.0.2-jre-slim
+EXPOSE 8080
+LABEL git_commit="${GIT_COMMIT}"
+LABEL git_branch="${GIT_BRANCH}"
+LABEL build_number="${BUILD_NUMBER}"
+
+VOLUME /tmp
+EXPOSE 8080
+ARG JAR_FILE
+
+ADD /target/${JAR_FILE} app.jar
